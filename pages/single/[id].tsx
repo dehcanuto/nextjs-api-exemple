@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { FaBook, FaFilm } from 'react-icons/fa';
 
 import { HeroSingle } from './types';
 import { getHero } from '../../services/heroes';
@@ -34,11 +35,29 @@ export default function SinglePage() {
                 '.' +
                 singleHero?.thumbnail?.extension
               }
-              alt="tailwind logo"
+              alt={singleHero?.name}
               className="rounded-xl"
             />
           </div>
           <div className="flex flex-col w-full md:w-2/3 space-y-2 p-3">
+            <div className="flex justify-between item-center">
+              <div className="flex item-center space-x-2 text-gray-500">
+                <p>{singleHero?.comics.available}</p>
+                <span>Comics</span>
+              </div>
+              <div className="flex item-center space-x-2 text-gray-500">
+                <p>{singleHero?.series.available}</p>
+                <span>Series</span>
+              </div>
+              <div className="flex item-center space-x-2 text-gray-500">
+                <p>{singleHero?.stories.available}</p>
+                <span>Stories</span>
+              </div>
+              <div className="flex item-center space-x-2 text-gray-500">
+                <p>{singleHero?.events.available}</p>
+                <span>Events</span>
+              </div>
+            </div>
             <div className="flex justify-between item-center">
               <p className="text-gray-500 font-medium hidden md:block">
                 #{slug}
