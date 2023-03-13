@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 export const Header = (props) => {
   return (
-    <div className="fixed top-0 left-0 right-0 flex-1 flex flex-col z-50">
-      <nav className="px-4 flex justify-between bg-white h-16 border-b-2">
-        <ul className="flex items-center">
-          <li>
+    <div className="fixed top-0 left-0 right-0 flex-1 flex flex-col bg-white border-b-2 z-50">
+      <div className="max-w-6xl w-full mx-auto">
+        <nav className="flex justify-between  w-full h-16">
+          <div className="flex items-center">
             <Link href={{ pathname: '/' }}>
               <svg width="130" height="52" xmlns="http://www.w3.org/2000/svg">
                 <rect fill="#EC1D24" width="100%" height="100%"></rect>
@@ -21,24 +21,14 @@ export const Header = (props) => {
                 ></path>
               </svg>
             </Link>
-          </li>
-        </ul>
-        <ul className="flex items-center">
-          <li>
-            <h1 className="pl-8 lg:pl-0 text-gray-700">{props.title}</h1>
-          </li>
-        </ul>
-        <ul className="flex items-center">
-          <li className="pr-6"></li>
-          <li className="h-10 w-10">
-            <img
-              className="h-full w-full rounded-full mx-auto"
-              src="https://randomuser.me/api/portraits/women/1.jpg"
-              alt="Foto do usuário"
-            />
-          </li>
-        </ul>
-      </nav>
+          </div>
+          <div className="flex items-center">
+            <h1 className="flex w-full pl-8 lg:pl-0 text-gray-400 truncate">
+              {props.title}
+            </h1>
+          </div>
+        </nav>
+      </div>
     </div>
   );
 };

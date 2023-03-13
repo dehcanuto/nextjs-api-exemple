@@ -10,7 +10,7 @@ export async function listHeros() {
   hash.update(timestamp + PRIVATE_KEY + PUBLIC_KEY);
 
   const response = await fetch(
-    `${reqUrl}?ts=${timestamp}&orderBy=name&limit=10&apikey=${PUBLIC_KEY}&hash=${hash.hex()}`
+    `${reqUrl}?ts=${timestamp}&orderBy=name&limit=16&apikey=${PUBLIC_KEY}&hash=${hash.hex()}`
   ).then(function (response) {
     return response.json();
   });

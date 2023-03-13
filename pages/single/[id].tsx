@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { FaBook, FaFilm } from 'react-icons/fa';
+import Link from 'next/link';
 
 import { HeroSingle } from './types';
 import { getHero } from '../../services/heroes';
@@ -16,7 +16,6 @@ export default function SinglePage() {
   useEffect(() => {
     async function init() {
       const { results } = await getHero(slug);
-      console.log('init SinglePage', results[0]);
       setSingleHero(results[0]);
       setLoading(false);
     }
@@ -25,9 +24,14 @@ export default function SinglePage() {
 
   return (
     <div className="min-w-screen min-h-screen bg-gray-200 px-5 py-5">
-      <Header title={slug} />
-      <div className="max-w-5xl mx-auto mt-16">
-        <div className="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 p-3 mx-auto">
+      <Header title={`#${slug} - ${singleHero?.name}`} />
+      <div className="max-w-6xl space-y-3 w-full mx-auto mt-16">
+        <div className="px-2">
+          <Link href={{ pathname: '/' }}>
+            <span className="font-bold text-blue-600 text-xl">Back</span>
+          </Link>
+        </div>
+        <div className="relative flex flex-col bg-white md:flex-row md:space-x-5 space-y-3 md:space-y-0 p-3 mx-auto shadow rounded">
           <div className="w-full md:w-1/3 bg-white grid place-items-center">
             <img
               src={
@@ -40,54 +44,42 @@ export default function SinglePage() {
             />
           </div>
           <div className="flex flex-col w-full md:w-2/3 space-y-2 p-3">
-            <div className="flex justify-between item-center">
-              <div className="flex item-center space-x-2 text-gray-500">
-                <p>{singleHero?.comics.available}</p>
-                <span>Comics</span>
+            <div className="flex justify-between items-center bg-white py-2 px-4">
+              <div className="flex items-center space-x-2 text-gray-500">
+                <p className="font-bold text-gray-800">
+                  {singleHero?.comics.available}
+                </p>
+                <small>Comics</small>
               </div>
-              <div className="flex item-center space-x-2 text-gray-500">
-                <p>{singleHero?.series.available}</p>
-                <span>Series</span>
+              <div className="flex items-center space-x-2 text-gray-500">
+                <p className="font-bold text-gray-800">
+                  {singleHero?.series.available}
+                </p>
+                <small>Series</small>
               </div>
-              <div className="flex item-center space-x-2 text-gray-500">
-                <p>{singleHero?.stories.available}</p>
-                <span>Stories</span>
+              <div className="flex items-center space-x-2 text-gray-500">
+                <p className="font-bold text-gray-800">
+                  {singleHero?.stories.available}
+                </p>
+                <small>Stories</small>
               </div>
-              <div className="flex item-center space-x-2 text-gray-500">
-                <p>{singleHero?.events.available}</p>
-                <span>Events</span>
+              <div className="flex items-center space-x-2 text-gray-500">
+                <p className="font-bold text-gray-800">
+                  {singleHero?.events.available}
+                </p>
+                <small>Events</small>
               </div>
             </div>
-            <div className="flex justify-between item-center">
+            <div className="flex justify-between items-center">
               <p className="text-gray-500 font-medium hidden md:block">
                 #{slug}
               </p>
-              <div className="flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-yellow-500"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <p className="text-gray-600 font-bold text-sm ml-1">4.96</p>
-              </div>
-              <div className="bg-gray-200 px-3 py-1 rounded-full text-xs font-medium text-gray-800 hidden md:block">
-                Superhost
-              </div>
             </div>
             <h3 className="font-black text-gray-800 md:text-3xl text-xl">
               {singleHero?.name}
             </h3>
             <p className="md:text-lg text-gray-500 text-base">
-              {singleHero?.description}
-            </p>
-            <p className="text-xl font-black text-gray-800">
-              $110
-              <span className="font-normal text-gray-600 text-base">
-                /night
-              </span>
+              {singleHero?.description ?? 'No description'}
             </p>
           </div>
         </div>

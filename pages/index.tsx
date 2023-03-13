@@ -29,12 +29,10 @@ export default function Home() {
         <title>Create Next App</title>
       </Head>
       <main>
-        <h1>Homepage</h1>
-        <Link href={{ pathname: './single' }}>single</Link>
         <div className="min-w-screen min-h-screen bg-gray-200 flex items-center justify-center px-5 py-5">
           <Header title="Home" />
-          <div className="max-w-5xl mx-auto mt-16">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-8">
+          <div className="max-w-6xl w-full mx-auto mt-16">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
               {!loading ? (
                 heroes.map((item: HeroSingle, index) => {
                   return <Card {...item} key={index} />;

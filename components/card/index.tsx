@@ -5,7 +5,6 @@ import { HeroSingle } from '../../pages/single/types';
 export const Card = ({
   id,
   name,
-  description,
   thumbnail,
   events,
   comics,
@@ -22,41 +21,41 @@ export const Card = ({
             className="object-cover h-full w-full"
           />
         </div>
-        <div className="p-2">
-          <h1 className="text-xl font-bold text-gray-800 cursor-pointer ">
+        <div className="p-2 space-y-2">
+          <h1 className="text-xl font-bold text-gray-800 cursor-pointer truncate">
             {name}
           </h1>
-          <ul class="flex flex-row text-xs text-gray-600">
-            <li class="py-1">
-              <div class="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-gray-200 text-gray-500 hover:text-gray-800">
+          <ul className="grid gap-4 grid-cols-4 text-xs text-gray-600">
+            <li className="py-1">
+              <div className="flex flex-col text-center items-center text-gray-500">
                 <span className="text-red-500 font-bold my-auto mr-2">
                   {events.available}
                 </span>
-                events
+                <small className="text-xs">events</small>
               </div>
             </li>
-            <li class="py-1">
-              <div class="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-gray-200 text-gray-500 hover:text-gray-800">
+            <li className="py-1">
+              <div className="flex flex-col text-center items-center text-gray-500">
                 <span className="text-red-500 font-bold my-auto mr-2">
                   {comics.available}
                 </span>
-                comics
+                <small className="text-xs">comics</small>
               </div>
             </li>
-            <li class="py-1">
-              <div class="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-gray-200 text-gray-500 hover:text-gray-800">
+            <li className="py-1">
+              <div className="flex flex-col text-center items-center text-gray-500">
                 <span className="text-red-500 font-bold my-auto mr-2">
                   {series.available}
                 </span>
-                series
+                <small className="text-xs">series</small>
               </div>
             </li>
-            <li class="py-1">
-              <div class="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-gray-200 text-gray-500 hover:text-gray-800">
+            <li className="py-1">
+              <div className="flex flex-col text-center items-center text-gray-500">
                 <span className="text-red-500 font-bold my-auto mr-2">
                   {stories.available}
                 </span>
-                stories
+                <small className="text-xs">stories</small>
               </div>
             </li>
           </ul>
