@@ -6,9 +6,9 @@ export default function SingleHero() {
       <Head>
         <title>Create Next App</title>
       </Head>
-
       <main>
         <h1>Single</h1>
+        <a href="../">home</a>
       </main>
     </div>
   );
